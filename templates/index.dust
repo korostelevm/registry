@@ -1,0 +1,25 @@
+{>layout/}
+
+{<content}
+<!--    hello {planet}-->
+{#.}{.superheros|js}<br>{/.}
+<div class = 'col-md-4'>
+  <form id="create_form" method="get">
+    <h5> Become a villain. Enter your name by your person and submit!</h5>
+    <h5> <strong style = "color: red;">If you messed up or changed your mind,</strong> enter the secret alter-ego/true-identity and submit to unselect.<small>&nbsp; (Do not do this because you think you know who Anton will be and you wanna steal his dude.)</small></h5>
+      <br><br>
+    <div id="registry_form" class="form-group">
+        <label for="batman_alter_ego">BATMAN</label>
+        <input id="batman_alter_ego" class="form-control" type="text" name="name"/>
+    </div>
+<br>
+      <div id = "status" style="text-align :center; color : red;  font-family: 'Comic Sans MS', cursive, sans-serif;"></div>
+    <button id="submit_form" class="form-control" type="button" class="btn btn-default">Register</button>
+  </form>
+
+
+      <hr>
+</div>
+<script src="/javascripts/main.js"></script>
+
+{/content}

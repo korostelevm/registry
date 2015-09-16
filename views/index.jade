@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p !{taxonomy}
+    form(id="create_form", method="get")
+            div.input
+                span.label name
+                input(type="text", name="name")
+            div.input
+                span.label type
+                input(type="text", name="type", value = "keyword")
+            div.input
+                span.label mongo_ref
+                input(type="text", name="mongo_ref", value = "123")
+                
+            div.actions
+                input(id='submit_form', type="button", value="create")
+     
+     form(id="connect_form", method="get")
+            div.input
+                span.label node name
+                input(type="text", name="thisName")
+            div.input
+                span.label node name
+                input(type="text", name="otherName")
+                
+            div.actions
+                input(id='submit_connect_form', type="button", value="connect") 
+                
+                
+  script(src="/javascripts/main.js")

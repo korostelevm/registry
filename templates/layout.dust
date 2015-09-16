@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Registry</title>
+
+    
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/jquery.form.js"></script>
+    
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h3> Registry</h3>
+
+    <div class = "row">
+    {+content}
+    
+    {/content}
+    </div>
+    
+    <div class = "row">
+    </div>
+</body>
+</html>
