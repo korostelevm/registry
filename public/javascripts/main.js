@@ -15,15 +15,15 @@ $('.step3').hide();
 
 $('#submit_form').on('click',function(){
     console.log('submitted name')
-//    if(IsEmail($('#name_field').val())){
+    if(IsEmail($('#name_field').val())){
         $('.step1').hide();
         message.name = $('#name_field').val();
         update();
         $('.step2').show();
         $('#status').empty();
-//    }else{
-//        $('#status').html( "You gotta use a valid email bro.")
-//    }
+    }else{
+        $('#status').html( "You gotta use a valid email bro.")
+    }
 });
 
 $('#submit_villain').on('click',function(){
