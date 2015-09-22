@@ -9,8 +9,10 @@
     <h3>Legion of Doom | <small>Supervillain Application Form</small></h3>
     
     <div id = "content">
-    <h5> Become a villain.</h5>
-    <h5> <strong style = "color: red;">If you messed up or changed your mind,</strong> enter the secret alter-ego/true-identity and submit to unselect.<small>&nbsp; (Do not do this because you think you know who Anton will be and you wanna steal his dude.)</small></h5>
+<!--    <h5>A</h5>-->
+    <h5> 
+        <strong style = "color: red;">
+        We do a thorough background check to ensure all applicatants maintain recent felony convictions.</strong> We are an equal oppertunity legion.</h5>
       <br><br>
     
         <div id="name" class="step1">
