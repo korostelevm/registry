@@ -37,15 +37,17 @@ collection.findAndModify(
               {
                 "query": { "costume":message.costume  },
                 "update": { "$set": { 
-                    "costume": "Mr. Freeze",
+//                    "costume": "Mr. Freeze",
                     "alter_ego": message.name
                 }},
         //        "options": { "new": true, "upsert": true }
                 "options": {}
               },
               function(err,doc) {
+                  
                 if (err) throw err;
                 console.log( doc );
+                  res.json(doc)
               }
 
       );

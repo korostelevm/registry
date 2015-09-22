@@ -17,13 +17,21 @@ $('#submit_form').on('click',function(){
     console.log('submitted name')
     if(IsEmail($('#name_field').val())){
         $('.step1').hide();
-        message.name = $('#name_field').val();
+        message.name = slugify($('#name_field').val());
+        message.email = $('#name_field').val();
         update();
         $('.step2').show();
         $('#status').empty();
+        $('#login').html(message.email);
     }else{
         $('#status').html( "You gotta use a valid email bro.")
     }
+});
+
+$('#login').on('click',function(){
+        $('.step1').show();
+        $('.step2').hide();
+        $('.step3').hide();
 });
 
 $('#submit_villain').on('click',function(){
@@ -35,7 +43,7 @@ $('#submit_villain').on('click',function(){
         $('.step3').show();
         $('#status').empty();
          $.getJSON("/register", {
-        name: message.name,
+        name: slugify(message.name),
         costume: message.costume
         },
               function (response) {
@@ -43,7 +51,7 @@ $('#submit_villain').on('click',function(){
         $('#confirm_message').html(message.costume+", welcome to the Legion of Doom")
          });
     }else{
-        $('#status').html( "You cant joint the Legion of Doom unless you are actually a villain.")
+        $('#status').html( "You cant join the Legion of Doom unless you are actually a villain.")
     }
 });
 
@@ -193,3 +201,7 @@ function update(){
     
  });
 }
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});

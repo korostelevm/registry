@@ -6,7 +6,9 @@
 <div class = 'col-md-4'>
 </div>
 <div class = 'col-md-4'>
-    <h3>Legion of Doom | <small>Supervillain Application Form</small></h3>
+    <a id="login" data-toggle="tooltip" title="Modify" class="pull-right small text-muted" style="cursor:pointer"></a>
+    <h3>Legion of Doom | <small>Supervillain Application Form</small>    
+</h3>
     
     <div id = "content">
 <!--    <h5>A</h5>-->
@@ -20,9 +22,10 @@
             <button id="submit_form" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Next</button>
         </div>
 
-        <div id="superheros" class="step2">    
+        <div id="superheros" class="step2">  
+            <p>Choose your evil alter-ego. <small>(The one you wanna be for this supervillain halloween party)</small></p>
             <div id="registry_form" class="squares_form"></div>
-            <button id="submit_villain" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Do Evil</button>
+            <button id="submit_villain" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Finish</button>
         </div>
         
         <div id="confirm" class="step3">    
