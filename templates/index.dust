@@ -4,21 +4,39 @@
 <!--    hello {planet}-->
 {#.}{.superheros|js}<br>{/.}
 <div class = 'col-md-4'>
-  <form id="create_form" method="get">
-    <h5> Become a villain. Enter your name by your person and submit!</h5>
+</div>
+<div class = 'col-md-4'>
+    <h3>Legion of Doom | <small>Supervillain Application Form</small></h3>
+    
+    <div id = "content">
+    <h5> Become a villain.</h5>
     <h5> <strong style = "color: red;">If you messed up or changed your mind,</strong> enter the secret alter-ego/true-identity and submit to unselect.<small>&nbsp; (Do not do this because you think you know who Anton will be and you wanna steal his dude.)</small></h5>
       <br><br>
-    <div id="registry_form" class="form-group">
-        <label for="batman_alter_ego">BATMAN</label>
-        <input id="batman_alter_ego" class="form-control" type="text" name="name"/>
-    </div>
-<br>
-      <div id = "status" style="text-align :center; color : red;  font-family: 'Comic Sans MS', cursive, sans-serif;"></div>
-    <button id="submit_form" class="form-control" type="button" class="btn btn-default">Register</button>
-  </form>
+    
+        <div id="name" class="step1">
+            <input id="name_field" type="text" class="form-control" placeholder="Enter your email"/>
+            <button id="submit_form" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Next</button>
+        </div>
 
-
-      <hr>
+        <div id="superheros" class="step2">    
+            <div id="registry_form" class="squares_form"></div>
+            <button id="submit_villain" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Do Evil</button>
+        </div>
+        
+        <div id="confirm" class="step3">    
+            <div id="confirm_form" class="">
+            <h3 style="text-align :center;" id="confirm_message"></h3>           
+                <p style="text-align :center;" id="">Revisit <a href='https://evening-beyond-7554.herokuapp.com/'>https://evening-beyond-7554.herokuapp.com/</a> if you change your mind about your evil alter-ego.</p>
+                
+            </div>
+        </div>
+        <hr><br>
+    
+</div>
+    
+<div id = "status" style="text-align :center; color : red;  font-family: 'Comic Sans MS', cursive, sans-serif;"></div>
+</div>
+<div class = 'col-md-4'>
 </div>
 <script src="/javascripts/main.js"></script>
 

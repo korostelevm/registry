@@ -19,66 +19,38 @@ router.get('/register', function (req, res) {
     var collection = db.get('superheros');
     var output = 'good';
     var index = 0;
-    var items = req.query;
-    for (var name in req.query) {
-        if (req.query[name].length > 0) {
-            if (name.split("_").length > 1) {
-                var id = name.split("_")[0];
-                console.log("REMOVE " + name.split("_")[0] + ": " + req.query[name]);
-                var alter_ego = req.query[name];
+    var message = req.query;
+    
 
+collection.findAndModify(
+      {
+        "query": { "alter_ego": message.name  },
+        "update": { "$set": { 
+//            "costume": message.costume,
+            "alter_ego": ""
+        }},
+//        "options": { "new": true, "upsert": true }
+        "options": {}
+      },
+      function(err,doc) {
+        collection.findAndModify(
+              {
+                "query": { "costume":message.costume  },
+                "update": { "$set": { 
+                    "costume": "Mr. Freeze",
+                    "alter_ego": message.name
+                }},
+        //        "options": { "new": true, "upsert": true }
+                "options": {}
+              },
+              function(err,doc) {
+                if (err) throw err;
+                console.log( doc );
+              }
 
-                collection.findOne(id, function (e, docs) {
-                    if (docs.alter_ego == alter_ego) {
-                        collection.updateById(id, {
-                            $set: {
-                                alter_ego: ""
-                            }
-                        }, function (error,docs) {
-                            console.log(error)
-                            output = "removed";
-                            return res.json({message:output, name: alter_ego});
-
-                        });
-                    } else {
-                        output = "wrong"
-                        return res.json({message:output, name: alter_ego, hero: docs.costume});
-
-                    }
-
-                });
-            } else {
-                var id = name.split("_")[0];
-                var alter_ego = req.query[name];
-                collection.findOne({
-                    alter_ego: alter_ego
-                }, function (e, docs) {
-
-
-                    if (!docs) {
-                        collection.updateById(id, {
-                            $set: {
-                                alter_ego: alter_ego
-                            }
-                        }, function (error) {
-                            console.log(error)
-                            output = "reg"
-                            return res.json({message:output, name: alter_ego});
-                        });
-                    }else{
-                        output = "exists"
-                        console.log(alter_ego)
-                        console.log(docs)
-                        return res.json({message:output,name:docs.alter_ego});
-                    }
-                });
-            }
-        }
-        if (index == Object.keys(items).length - 1) {
-        }
-        index++;
-    }
-
+      );
+      }
+);
 
 
 });

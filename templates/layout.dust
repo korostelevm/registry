@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Registry</title>
+  <title>The Legion of Doom | Supervillain Application Form</title>
 
     
   <script src="/javascripts/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <h3> Registry</h3>
+
 
     <div class = "row">
     {+content}
