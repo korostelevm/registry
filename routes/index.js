@@ -20,39 +20,55 @@ router.get('/register', function (req, res) {
     var output = 'good';
     var index = 0;
     var message = req.query;
-    
 
-collection.findAndModify(
-      {
-        "query": { "alter_ego": message.name  },
-        "update": { "$set": { 
-//            "costume": message.costume,
-            "alter_ego": ""
-        }},
-//        "options": { "new": true, "upsert": true }
-        "options": {}
-      },
-      function(err,doc) {
-        collection.findAndModify(
-              {
-                "query": { "costume":message.costume  },
-                "update": { "$set": { 
-//                    "costume": "Mr. Freeze",
-                    "alter_ego": message.name
-                }},
-        //        "options": { "new": true, "upsert": true }
-                "options": {}
-              },
-              function(err,doc) {
-                  
-                if (err) throw err;
-                console.log( doc );
-                  res.json(doc)
-              }
 
-      );
-      }
-);
+    collection.findAndModify({
+            "query": {
+                "alter_ego": message.name
+            },
+            "update": {
+                "$set": {
+                    //            "costume": message.costume,
+                    "alter_ego": ""
+                }
+            },
+            //        "options": { "new": true, "upsert": true }
+            "options": {}
+        },
+        function (err, doc) {
+
+
+
+            collection.findAndModify({
+                    "query": {
+                        "costume": message.costume
+                    },
+                    "update": {
+                        "$set": {
+                            //                    "costume": message.costume,
+                            "alter_ego": message.name
+                        }
+                    },
+                },
+                function (err, doc) {
+
+                    if (err) throw err;
+                    
+                    if (!doc) {
+                        collection.insert({
+                            "costume": message.costume,
+                            "alter_ego": message.name
+                        }, function (err, doc) {
+                            if (err) throw err;
+                            return res.json(doc)
+                        });
+                    }else{
+                        return res.json(doc)
+                    }
+                }
+            );
+        }
+    );
 
 
 });

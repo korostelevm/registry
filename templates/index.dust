@@ -24,14 +24,23 @@
 
         <div id="superheros" class="step2">  
             <p>Choose your evil alter-ego. <small>(The one you wanna be for this supervillain halloween party)</small></p>
-            <div id="registry_form" class="squares_form"></div>
+            <div id="registry_form" class="squares_form">                 
+
+            
+            </div>
             <button id="submit_villain" class="form-control" type="button" class="btn btn-default" style="margin-top:10px">Finish</button>
         </div>
         
         <div id="confirm" class="step3">    
             <div id="confirm_form" class="">
-            <h3 style="text-align :center;" id="confirm_message"></h3>           
-                <p style="text-align :center;" id="">Revisit <a href='https://evening-beyond-7554.herokuapp.com/'>https://evening-beyond-7554.herokuapp.com/</a> if you change your mind about your evil alter-ego.</p>
+            <h3 style="text-align :center;" id="confirm_message"></h3>
+                <br>
+                <p style="" id="">If you change your mind about your evil alter-ego: 
+                    <ul>
+                    <li>Revisit <a href='https://evening-beyond-7554.herokuapp.com/'>https://evening-beyond-7554.herokuapp.com/</a> later </li>
+                        <li>You can also <a id="goback" class="btn btn-default btn-xs">try again</a> now</li>
+                        </ul>
+                        </p>
                 
             </div>
         </div>

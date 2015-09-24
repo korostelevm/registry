@@ -1,3 +1,43 @@
+/*
+@media screen and (max-width: 992px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 42px;  
+  }
+  h5 {
+    font-size: 30px;  
+  }
+    
+.flip-container, .front, .back {
+  height: 285px;
+  width: 285px;
+  margin: 5px;
+    float: left;
+}
+}
+*/
+
+@media screen and (max-width: 768px) {
+  p,.btn,input,div,span,h4 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 48px;  
+  }
+  h5 {
+    font-size: 30px;  
+  }
+    
+    .flip-container, .front, .back {
+  height: 285px;
+  width: 285px;
+  margin: 5px;
+    float: left;
+}
+}
+
 body {
   padding: 50px;
 /*  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
@@ -22,6 +62,35 @@ a {
   overflow: hidden;
     cursor:pointer;
 }
+.news-item-new {
+  background-color: white;
+  display: table; 
+  float: left;
+  height: 85px;
+  width: 85px;
+/*  margin: 5px;*/
+  overflow: hidden;
+/*    cursor:pointer;*/
+    border-style: dashed;
+    border-width: 2px;
+    
+}
+
+.news-item-new textarea {
+    background-color: transparent;
+    border: 0px solid;
+    height: 30px;
+    overflow: hidden;
+    width: 160px;
+    width: 70px;
+    font-size:0.9em;
+    color:black;
+    resize: none;
+    text-align:center;
+}
+.news-item-new textarea:focus, input:focus{
+    outline: 0;
+}
 
 .news-item-disabled {
   background-color: #aa001a;
@@ -31,11 +100,11 @@ a {
   width: 85px;
 /*  margin: 5px;*/
   overflow: hidden;
-    cursor:pointer;
+    cursor:no-drop;
 }
 
 .news-item-back {
-  background-color: #3a0065;
+  background-color: #0e6f25;
   display: table; 
   float: left;
   height: 85px;
@@ -58,6 +127,14 @@ cursor: not-allowed;
   vertical-align: middle; 
 }
 
+.news-item-new-title {
+  color: #003baa;
+  display: table-cell; 
+  line-height: 1.2;
+  font-size: 0.9em;
+  text-align: center; 
+  vertical-align: middle; 
+}
 
 /* entire container, keeps perspective */
 .flip-container {
