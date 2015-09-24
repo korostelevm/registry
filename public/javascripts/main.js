@@ -5,12 +5,17 @@ var message = {
  
 function slugify(sourceString){
     sourceString = sourceString.toLowerCase();
-return sourceString.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')}
+    sourceString.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '')
+    result = md5(sourceString);
+    console.log(result)
+return result
+}
 
 function IsEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
+
 $('.step2').hide();
 $('.step3').hide();
 
@@ -50,7 +55,7 @@ $('#submit_villain').on('click',function(){
         $('.step3').show();
         $('#status').empty();
          $.getJSON("/register", {
-        name: slugify(message.name),
+        name: message.name,
         costume: message.costume
         },
               function (response) {
@@ -103,13 +108,13 @@ function update(){
                         var markup = "news-item-disabled";
                         var markup2 = "";
                         
-                        if(slugify(superhero.alter_ego) == message.name){
+                        if(superhero.alter_ego == message.name){
                             markup = "news-item"
-                            markup2 = "flip "+ slugify(superhero.alter_ego)
+                            markup2 = "flip "+ superhero.alter_ego
                         }
                     $('#registry_form').append(
                         
-                    '<div class="flip-container db '+markup2+'" data-costume = "'+superhero.costume+'" data-alter_ego="'+slugify(superhero.alter_ego)+'">\
+                    '<div class="flip-container db '+markup2+'" data-costume = "'+superhero.costume+'" data-alter_ego="'+superhero.alter_ego+'">\
                         <div id="'+superhero._id+'" class="flipper">\
                             <div class="front">\
                                 <div class="'+markup+'"><p class="news-item-title">'+superhero.costume+'</p>\
@@ -162,38 +167,30 @@ function update(){
 
                         $('.flip-container.db').on('click', function(){
                             console.log($(this))
-                            if(!$(this).hasClass('flip') && !$(this).hasClass(slugify(message.name))  && $(this).attr('data-alter_ego') == "" || ($(this).attr('data-alter_ego') == slugify(message.name))){
+                            if(!$(this).hasClass('flip') && !$(this).hasClass(message.name)  && $(this).attr('data-alter_ego') == "" || ($(this).attr('data-alter_ego') == message.name)){
                             console.log(message.name)
-                    $('.'+slugify(message.name)).toggleClass('flip');
-                    $('.'+slugify(message.name)).addClass('available');
-                    $('.'+slugify(message.name)).toggleClass(slugify(message.name));
+                    $('.'+message.name).toggleClass('flip');
+                    $('.'+message.name).addClass('available');
+                    $('.'+message.name).toggleClass(message.name);
                                 
                                 message.costume = $(this).attr('data-costume');
                                 $(this).toggleClass('flip');
-                                $(this).toggleClass(slugify(message.name));
+                                $(this).toggleClass(message.name);
                         }
                     });
 
         
                     $('#new_ok').on('click', function () {
-                        $('.' + slugify(message.name)).toggleClass('flip');
-                        $('.' + slugify(message.name)).toggleClass(slugify(message.name));
+                        $('.' + message.name).toggleClass('flip');
+                        $('.' + message.name).toggleClass(message.name);
 
                         $('#new_flip-container').toggleClass('flip')
-                        $('#new_flip-container').addClass(slugify(message.name))
+                        $('#new_flip-container').addClass(message.name)
                         
                         message.costume = $('#new_textarea').val();
                         $('#new_back').html($('#new_textarea').val());
                         
 
-//                        if (!$(this).hasClass('flip') && !$(this).hasClass(slugify(message.name)) && $(this).attr('data-alter_ego') == "" || ($(this).attr('data-alter_ego') == slugify(message.name))) {
-//
-//                            $('.' + slugify(message.name)).toggleClass('flip');
-//                            $('.' + slugify(message.name)).toggleClass(slugify(message.name));
-//                            message.costume = $(this).attr('data-costume');
-//                            $(this).toggleClass('flip');
-//                            $(this).toggleClass(slugify(message.name));
-//                        }
                     });
 
                     $('#new_cancel').on('click', function () {
