@@ -100,8 +100,7 @@ function update(){
         
         );
         
-        
-        
+                response.superheroes = _.sortBy(response.superheroes, 'costume');
                 $.each(response.superheroes, function(index, superhero){
                     // TAKEN
                     if(superhero.alter_ego.length>0){
