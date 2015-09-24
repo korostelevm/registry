@@ -50,7 +50,7 @@ a {
 .squares_form{
     margin:10px auto;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 .news-item {
   background-color: #003baa;
@@ -138,12 +138,14 @@ cursor: not-allowed;
 
 /* entire container, keeps perspective */
 .flip-container {
+    -webkit-perspective: 1000; /* Chrome, Safari, Opera */
 	perspective: 1000;
 }
 	/* flip the pane when hovered */
 /*	.flip-container:hover*/
     .flip-container.flip .flipper {
 		transform: rotateY(180deg);
+		-webkit-transform: rotateY(180deg);
 	}
 
 .flip-container, .front, .back {
@@ -157,12 +159,14 @@ cursor: not-allowed;
 .flipper {
 	transition: 0.6s;
 	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
 	position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 
 	position: absolute;
 	top: 0;
@@ -174,9 +178,11 @@ cursor: not-allowed;
 	z-index: 2;
 	/* for firefox 31 */
 	transform: rotateY(0deg);
+	-webkit-transform:  rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
 	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
 }
